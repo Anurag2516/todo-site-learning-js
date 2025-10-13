@@ -1,4 +1,4 @@
-* {
+ * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -19,7 +19,7 @@
             border-radius: 16px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             width: 100%;
-            max-width: 500px;
+            max-width: 800px;
             padding: 40px 30px;
         }
 
@@ -50,6 +50,15 @@
             border-color: #667eea;
         }
 
+        #todoInput.error {
+            border-color: #ff6b6b;
+        }
+
+        .emptyMessage {
+            padding: 10px 18px;
+            font-size: 13px;
+        }
+
         #addBtn {
             padding: 14px 24px;
             background: #667eea;
@@ -68,6 +77,19 @@
 
         #addBtn:active {
             transform: scale(0.98);
+        }
+
+        .error-msg {
+            display: none;
+            color: #ff6b6b;
+            font-size: 14px;
+            margin-top: -20px;
+            margin-bottom: 20px;
+            margin-left: 4px;
+        }
+
+        .error-msg.show {
+            display: block;
         }
 
         .filters {
@@ -101,29 +123,27 @@
             background: #5568d3;
         }
 
-        #todoList {
-            list-style: none;
-        }
-
         .todo-item {
-            background: #f9f9f9;
-            padding: 16px;
-            margin-bottom: 10px;
-            border-radius: 8px;
+            background: white;
+            padding: 19px 20px;
+            margin-bottom: 12px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
             transition: all 0.3s;
-            border: 2px solid transparent;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
         }
 
         .todo-item:hover {
-            border-color: #667eea;
-            transform: translateX(4px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+            transform: translateY(-2px);
         }
 
         .todo-item.completed {
-            opacity: 0.6;
+            opacity: 0.7;
+            background: #f9f9f9;
         }
 
         .todo-item.completed .todo-text {
@@ -132,10 +152,11 @@
         }
 
         .checkbox {
-            width: 20px;
-            height: 20px;
+            width: 22px;
+            height: 22px;
             cursor: pointer;
             accent-color: #667eea;
+            flex-shrink: 0;
         }
 
         .todo-text {
@@ -145,19 +166,104 @@
             word-break: break-word;
         }
 
+        .todo-actions {
+            display: flex;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .edit-btn,
         .delete-btn {
-            padding: 6px 12px;
-            background: #ff6b6b;
-            color: white;
+            width: 32px;
+            height: 32px;
             border: none;
             border-radius: 6px;
-            font-size: 14px;
+            font-size: 16px;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .edit-btn {
+            background: #e8eaf6;
+            color: #667eea;
+        }
+
+        .edit-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .delete-btn {
+            background: #ffebee;
+            color: #ff6b6b;
         }
 
         .delete-btn:hover {
-            background: #ff5252;
+            background: #ff6b6b;
+            color: white;
+        }
+
+        .save-btn,
+        .cancel-btn {
+            width: 32px;
+            height: 32px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .save-btn {
+            background: #d4edda;
+            color: #28a745;
+        }
+
+        .save-btn:hover {
+            background: #28a745;
+            color: white;
+        }
+
+        .cancel-btn {
+            background: #f8d7da;
+            color: #dc3545;
+        }
+
+        .cancel-btn:hover {
+            background: #dc3545;
+            color: white;
+        }
+
+        .edit-input {
+            flex: 1;
+            padding: 8px 12px;
+            border: 2px solid #667eea;
+            border-radius: 6px;
+            font-size: 16px;
+            outline: none;
+            background: white;
+        }
+        .edit-input.error {
+            border-color: #ff6b6b ;
+        }
+
+        .edit-error-msg {
+            display: none;
+            color: #ff6b6b;
+            font-size: 13px;
+            position: absolute;
+            margin-top: 55px;
+            margin-left: 38px;
+        }
+
+        .edit-error-msg.show {
+            display: block;
         }
 
         .empty-state {
