@@ -223,6 +223,7 @@
         .save-btn {
             background: #d4edda;
             color: #28a745;
+            display: flex;
         }
 
         .save-btn:hover {
@@ -233,6 +234,7 @@
         .cancel-btn {
             background: #f8d7da;
             color: #dc3545;
+            display: flex;
         }
 
         .cancel-btn:hover {
@@ -249,6 +251,7 @@
             outline: none;
             background: white;
         }
+        
         .edit-input.error {
             border-color: #ff6b6b ;
         }
